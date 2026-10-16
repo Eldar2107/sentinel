@@ -1,0 +1,34 @@
+# Byte‑compiled / Python / Node artefacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Node modules
+node_modules/
+
+# Build artefacts
+frontend/dist/
+frontend/build/
+
+# Docker artefacts
+*.log
+Dockerfile.*
+.dockerignore
+
+# Environment files
+.env
+.env.*
+
+# VS Code settings
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# GitHub Actions artefacts
+.github/workflows/*.yml
+
+# Local data (keep folder but ignore contents)
+data/*
