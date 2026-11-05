@@ -389,8 +389,10 @@ async def get_dashboard_data():
             "latency": latency,
             "uptime_pct": round(uptime_pct, 2),
             "recent_drift": drift,
+            "anomalies": await db.get_anomalies(bank_id, limit=5),
         }
 
+    dashboard["recent_anomalies"] = await db.get_anomalies(limit=15)
     return dashboard
 
 

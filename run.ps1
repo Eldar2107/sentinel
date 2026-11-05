@@ -85,7 +85,8 @@ $services = @(
     @{Name="Bank B (BoG)"; Url="http://localhost:8002/health"},
     @{Name="Bank C (Liberty)"; Url="http://localhost:8003/health"},
     @{Name="Backend API"; Url="http://localhost:8000/api/health"},
-    @{Name="Dashboard"; Url="http://localhost:3000"}
+    @{Name="Dashboard"; Url="http://localhost:3000"},
+    @{Name="Streamlit AI Monitor"; Url="http://localhost:8501"}
 )
 
 foreach ($svc in $services) {

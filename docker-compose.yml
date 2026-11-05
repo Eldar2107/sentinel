@@ -168,6 +168,22 @@ services:
     networks:
       - sentinel-net
 
+
+  # ─── Streamlit Alternative Monitor ─────────────────────────────────────────
+  streamlit:
+    build:
+      context: ./streamlit
+      dockerfile: Dockerfile
+    container_name: sentinel-streamlit
+    ports:
+      - "8501:8501"
+    environment:
+      API_URL: "http://backend:8000/api"
+    depends_on:
+      - backend
+    networks:
+      - sentinel-net
+
 networks:
   sentinel-net:
     driver: bridge

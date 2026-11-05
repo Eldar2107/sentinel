@@ -244,9 +244,11 @@ async def run_anomaly_scan():
                 """, bank_id)
 
             if len(rows) < 10:
-                continue
-
-            latencies = [float(r["p95"]) for r in reversed(rows)]
+                # Seed with baseline telemetry so anomaly detector operates immediately at startup
+                synth = generate_synthetic_telemetry(bank_id, n_points=35)
+                latencies = [d["latency_ms"] for d in synth] + [float(r["p95"]) for r in reversed(rows)]
+            else:
+                latencies = [float(r["p95"]) for r in reversed(rows)]
             result = detector.detect(bank_id, latencies)
 
             for anomaly in result["anomalies"]:
